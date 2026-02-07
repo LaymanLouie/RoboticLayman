@@ -1,0 +1,1484 @@
+import { Command } from "@/types/command";
+
+export const commands: Command[] = [
+  {
+    id: "setscene",
+    name: "!setscene",
+    usage: "[scene]",
+    aliases: ["!changescene"],
+    permission: "moderator",
+    commandGroups: ["OBS", "Scene"],
+    description: "This command changes the scene currently showing on stream.",
+    parameterGroups: [
+      {
+        name: "!setscene",
+        usage: "starting",
+        aliases: ["start", "begin", "beginning", "intro", "introduction"],
+        description:
+          'These options switch to the "Stream is Starting" scene shown before the stream begins.',
+      },
+      {
+        name: "!setscene",
+        usage: "brb",
+        aliases: ["be right back", "break", "break time", "intermission"],
+        description:
+          'These options switch to the "Be Right Back" scene for short breaks.',
+      },
+      {
+        name: "!setscene",
+        usage: "ending",
+        aliases: ["end", "ending soon", "outro"],
+        description:
+          'These options switch to the "Stream is Ending" scene when wrapping up the stream.',
+      },
+      {
+        name: "!setscene",
+        usage: "game",
+        aliases: ["gaming", "gameplay", "playing games", "layman gaming"],
+        description: "These options switch to the main gameplay scene.",
+      },
+      {
+        name: "!setscene",
+        usage: "chrome",
+        aliases: ["browser", "web"],
+        description:
+          "These options switch to the Chrome scene for browsing content.",
+      },
+      {
+        name: "!setscene",
+        usage: "afk",
+        aliases: ["away", "gone", "sleep", "sleeping"],
+        description: "These options switch to the AFK scene.",
+      },
+    ],
+  },
+  {
+    id: "shoutout",
+    name: "!shoutout",
+    usage: "[username]",
+    aliases: ["!so"],
+    permission: "moderator",
+    commandGroups: ["Viewer", "Promotion"],
+    description:
+      "This command promotes another streamer's channel to Layman's viewers.",
+  },
+  {
+    id: "7tv",
+    name: "!7tv",
+    permission: "follower",
+    commandGroups: ["Link"],
+    description:
+      "This command gives you a link to be able to view the emotes added to Layman's channel through 7TV.",
+  },
+  {
+    id: "magic8ball",
+    name: "!magic8ball",
+    aliases: ["!8ball", "!predict"],
+    permission: "follower",
+    commandGroups: ["Chance", "Fun"],
+    description: "This command shakes a virtual Magic 8 ball for you.",
+  },
+  {
+    id: "addchips",
+    name: "!addchips",
+    usage: "[username] [amount]",
+    permission: "moderator",
+    commandGroups: ["Economy"],
+    description: "This command adds The Layman's currency to a viewer.",
+    parameterGroups: [
+      {
+        name: "!addchips",
+        usage: "all [amount]",
+        description:
+          "These options add The Layman's currency to all viewers present in the chat.",
+      },
+    ],
+  },
+  {
+    id: "adddeath",
+    name: "!adddeath",
+    permission: "follower",
+    commandGroups: ["Layman", "Death"],
+    description:
+      "This command adds a death to the stream category to track Layman's deaths in-game... of course.",
+  },
+  {
+    id: "removedeath",
+    name: "!removedeath",
+    aliases: ["!takedeath", "!subtractdeath"],
+    permission: "follower",
+    commandGroups: ["Layman", "Death"],
+    description:
+      "This command takes a death away from the stream category for when extras are added.",
+  },
+  {
+    id: "setdeaths",
+    name: "!setdeaths",
+    aliases: ["!setdeath"],
+    permission: "moderator",
+    commandGroups: ["Layman", "Death"],
+    description:
+      "This command sets the amount of times Layman has died in the current stream category during this stream.",
+  },
+  {
+    id: "settotaldeaths",
+    name: "!settotaldeaths",
+    aliases: ["!settotaldeaths"],
+    permission: "moderator",
+    commandGroups: ["Layman", "Death"],
+    description:
+      "This command sets the TOTAL amount of times Layman has died in the current stream category deaths to what the Layman Legion says it is.",
+  },
+  {
+    id: "attempts",
+    name: "!attempts",
+    aliases: ["!attempt", "!tries", "!try"],
+    permission: "follower",
+    commandGroups: ["Layman", "Tries", "Death"],
+    description:
+      "This command says how many attempts have been made to the current struggle The Layman is suffering.",
+  },
+  {
+    id: "removeattempt",
+    name: "!removeattempt",
+    aliases: [
+      "!removetry",
+      "!takeattempt",
+      "!taketry",
+      "subtractattempt",
+      "subtracttry",
+    ],
+    permission: "follower",
+    commandGroups: ["Layman", "Tries", "Death"],
+    description:
+      "This command removes an attempt made to the current struggle The Layman is suffering for when extras are added.",
+  },
+  {
+    id: "resetattempts",
+    name: "!resetattempts",
+    aliases: ["!resetattempt", "!resettries", "!resettry"],
+    permission: "moderator",
+    commandGroups: ["Layman", "Tries", "Death"],
+    description:
+      "This command resets the attempts because The Layman is NO LONGER suffering!",
+  },
+  {
+    id: "addattempt",
+    name: "!addattempt",
+    aliases: ["!addtry", "!anothertry", "!tryagain"],
+    permission: "follower",
+    commandGroups: ["Layman", "Tries", "Death"],
+    description:
+      "This command adds an attempt made to the current struggle The Layman is suffering.",
+  },
+  {
+    id: "advice",
+    name: "!advice",
+    permission: "subscriber",
+    commandGroups: ["Chance"],
+    description: "This command says advice you have given before.",
+  },
+  {
+    id: "age",
+    name: "!age",
+    permission: "follower",
+    commandGroups: ["Layman", "Lore"],
+    description: "This command says Layman's age.",
+  },
+  {
+    id: "agent",
+    name: "!agent",
+    permission: "follower",
+    commandGroups: ["VALORANT"],
+    description: "This command says a random agent from VALORANT.",
+  },
+  {
+    id: "birthday",
+    name: "!birthday",
+    aliases: ["!affiliateday", "!anniversary"],
+    permission: "follower",
+    commandGroups: ["Layman", "Lore"],
+    description:
+      "This command says how much time until another year is added to The Layman.",
+  },
+  {
+    id: "attack",
+    name: "!attack",
+    massCompatible: true,
+    usage: "[username]",
+    permission: "follower",
+    commandGroups: ["Avatars"],
+    description:
+      "This command attacks another viewer's avatar with your avatar.",
+  },
+  {
+    id: "stand",
+    name: "!stand",
+    massCompatible: true,
+    permission: "follower",
+    commandGroups: ["Avatars"],
+    description: "This command makes your avatar stand after taking a break.",
+  },
+  {
+    id: "sit",
+    name: "!sit",
+    massCompatible: true,
+    permission: "follower",
+    commandGroups: ["Avatars"],
+    description:
+      "This command lets your avatar take a break from running aroud.",
+  },
+  {
+    id: "basketball",
+    name: "!basketball",
+    permission: "subscriber",
+    commandGroups: ["Avatars", "Mini-game"],
+    description:
+      "This command starts a game of basketball with the viewers that join.",
+    parameterGroups: [
+      {
+        name: "!basketball",
+        usage: "ffa",
+        description:
+          "These options create a free-for-all basketball game with your avatars.",
+      },
+      {
+        name: "!basketball",
+        usage: "cancel",
+        description: "These options cancel the ongoing basketball match.",
+      },
+    ],
+  },
+  {
+    id: "battlenet",
+    name: "!battlenet",
+    permission: "follower",
+    commandGroups: ["Layman", "Gamertag"],
+    description: "This command says The Layman's Battle.net gamertag.",
+  },
+  {
+    id: "battleroyale",
+    name: "!battleroyale",
+    permission: "follower",
+    commandGroups: ["Avatars", "Mini-game"],
+    description:
+      "This command starts a fighting competition with every present avatar.",
+    parameterGroups: [
+      {
+        name: "!battleroyale",
+        usage: "cancel",
+        description: "These options cancel the ongoing battle royale.",
+      },
+    ],
+  },
+  {
+    id: "bomb",
+    name: "!bomb",
+    massCompatible: true,
+    permission: "follower",
+    commandGroups: ["Avatars"],
+    description: "This command drops a bomb where your avatar is.",
+    parameterGroups: [
+      {
+        name: "!bomb",
+        usage: "[username]",
+        description:
+          "These options allow you to drop a bomb on another viewer.",
+      },
+    ],
+  },
+  {
+    id: "boss",
+    name: "!boss",
+    permission: "subscriber",
+    commandGroups: ["Avatars", "Mini-game"],
+    description: "This command starts a boss fight with everyone that joins.",
+    parameterGroups: [
+      {
+        name: "!boss",
+        usage: "easy",
+        description:
+          "These options start an easy boss fight with everyone that joins.",
+      },
+      {
+        name: "!boss",
+        usage: "normal",
+        description:
+          "These options start a normal boss fight with everyone that joins.",
+      },
+      {
+        name: "!boss",
+        usage: "hard",
+        description:
+          "These options start a hard boss fight with everyone that joins.",
+      },
+      {
+        name: "!boss",
+        usage: "cancel",
+        description: "These options cancel the ongoing boss battle.",
+      },
+    ],
+  },
+  {
+    id: "setspotify",
+    name: "!setspotify",
+    usage: "[position]",
+    aliases: ["!changespotify"],
+    permission: "moderator",
+    commandGroups: ["OBS", "Spotify"],
+    description: "This command changes the position of the Spotify overlay.",
+    parameterGroups: [
+      {
+        name: "!setspotify",
+        usage: "tl",
+        aliases: [
+          "top left",
+          "lt",
+          "left top",
+          "ul",
+          "up left",
+          "lu",
+          "left up",
+        ],
+        description: "These options put the Spotify overlay on the top left.",
+      },
+      {
+        name: "!setspotify",
+        usage: "tr",
+        aliases: [
+          "top right",
+          "rt",
+          "right top",
+          "ur",
+          "up right",
+          "ru",
+          "right up",
+        ],
+        description: "These options put the Spotify overlay on the top right.",
+      },
+      {
+        name: "!setspotify",
+        usage: "bl",
+        aliases: [
+          "bottom left",
+          "lb",
+          "left bottom",
+          "dl",
+          "down left",
+          "ld",
+          "left down",
+        ],
+        description:
+          "These options put the Spotify overlay on the bottom left.",
+      },
+      {
+        name: "!setspotify",
+        usage: "br",
+        aliases: [
+          "bottom right",
+          "rb",
+          "right bottom",
+          "dr",
+          "down right",
+          "rd",
+          "right down",
+        ],
+        description:
+          "These options put the Spotify overlay on the bottom right.",
+      },
+    ],
+  },
+  {
+    id: "chegg",
+    name: "!chegg",
+    usage: "[question]",
+    permission: "follower",
+    commandGroups: ["Question"],
+    description:
+      "This command works with Chegg to answer any questions you have about anything.",
+  },
+  {
+    id: "chips",
+    name: "!chips",
+    permission: "follower",
+    commandGroups: ["Economy", "Viewer"],
+    description:
+      "This command checks how much you have of The Layman's currency.",
+    parameterGroups: [
+      {
+        name: "!chips",
+        usage: "[username]",
+        description:
+          "These option let YOU pocket peek and see how much someone else has of The Layman's currency.",
+      },
+    ],
+  },
+  {
+    id: "coin",
+    name: "!coin",
+    aliases: ["!coinflip"],
+    permission: "follower",
+    commandGroups: ["Chance", "Fun"],
+    description: "This command flips a virtual coin for you.",
+  },
+  {
+    id: "commands",
+    name: "!commands",
+    aliases: ["!cmds"],
+    permission: "follower",
+    commandGroups: ["Layman", "Setup", "Link"],
+    description:
+      "This command sends a link with EVERYTHING you can do in The Layman's chat.",
+  },
+  {
+    id: "dance",
+    name: "!dance",
+    massCompatible: true,
+    permission: "follower",
+    commandGroups: ["Avatars", "Fun"],
+    description: "This command makes your avatar do a little boogie.",
+  },
+  {
+    id: "deadbydaylight",
+    name: "!deadbydaylight",
+    aliases: ["!dbd", "!bhvr"],
+    permission: "follower",
+    commandGroups: ["Layman", "Gamertag"],
+    description: "This command says Layman's Dead By Daylight gamertag.",
+  },
+  {
+    id: "deaths",
+    name: "!deaths",
+    aliases: ["!death"],
+    permission: "follower",
+    commandGroups: ["Layman", "Death"],
+    description:
+      "This command tells us how many times Layman has died in the current game we are playing during this stream and EVER!",
+  },
+  {
+    id: "dice",
+    name: "!dice",
+    usage: "[amount]",
+    aliases: ["!roll"],
+    permission: "follower",
+    commandGroups: ["Economy", "Gamble"],
+    description:
+      "This command lets you roll 2 virtual dice and Francis does the same. Who comes out on top? The winner.",
+    parameterGroups: [
+      {
+        name: "!dice",
+        usage: "max",
+        aliases: ["all"],
+        description:
+          "These options allow you to gamble all of the currency you hold.",
+      },
+    ],
+  },
+  {
+    id: "discord",
+    name: "!discord",
+    permission: "follower",
+    commandGroups: ["Layman", "Link", "Social"],
+    description:
+      "This command sends the link for you to join The Layman's World.",
+  },
+  {
+    id: "twitch",
+    name: "!twitch",
+    permission: "follower",
+    commandGroups: ["Layman", "Link", "Social"],
+    description: "This command lets you check out The Layman's Twitch.",
+  },
+  {
+    id: "youtube",
+    name: "!youtube",
+    aliases: ["yt"],
+    permission: "follower",
+    commandGroups: ["Layman", "Link", "Social"],
+    description: "This command lets you check out The Layman's YouTube.",
+  },
+  {
+    id: "duel",
+    name: "!duel",
+    usage: "[username]",
+    permission: "follower",
+    commandGroups: ["Avatars", "Mini-game"],
+    description: "This command allows you to 1v1 someone to the death.",
+    parameterGroups: [
+      {
+        name: "!duel",
+        usage: "[username] [amount]",
+        description:
+          "These options allow you to 1v1 someone and gives the winner some of The Layman's currency.",
+      },
+      {
+        name: "!duel",
+        usage: "cancel",
+        description: "These options cancels the active duel.",
+      },
+    ],
+  },
+  {
+    id: "endstream",
+    name: "!endstream",
+    permission: "moderator",
+    commandGroups: ["OBS", "Stream"],
+    description: "This command ends The Layman's stream.",
+  },
+  {
+    id: "startstream",
+    name: "!startstream",
+    permission: "moderator",
+    commandGroups: ["OBS", "Stream"],
+    description: "This command starts The Layman's stream!",
+  },
+  {
+    id: "escape",
+    name: "!escape",
+    permission: "follower",
+    commandGroups: ["Special", "Fun"],
+    description: "This command says a funny message designed by TheOracleMind.",
+  },
+  {
+    id: "explode",
+    name: "!explode",
+    massCompatible: true,
+    permission: "subscriber",
+    commandGroups: ["Avatars"],
+    description: "This command shakes your avatar until it disappears.",
+    parameterGroups: [
+      {
+        name: "!explode",
+        usage: "[username]",
+        description:
+          "These options let you shake someone else's avatar until they disappear.",
+      },
+    ],
+  },
+  {
+    id: "fact",
+    name: "!fact",
+    permission: "subscriber",
+    commandGroups: ["Chance"],
+    description: "This command tells you a random fun fact.",
+    parameterGroups: [
+      {
+        name: "!fact",
+        usage: "cat",
+        description: "These options tell you a random cat fact.",
+      },
+      {
+        name: "!fact",
+        usage: "chuck",
+        description: "These options tell you a random fact of Chuck Norris.",
+      },
+    ],
+  },
+  {
+    id: "fart",
+    name: "!fart",
+    massCompatible: true,
+    permission: "follower",
+    commandGroups: ["Avatars", "Fun"],
+    description: "This command lets your avatar let out some air...",
+  },
+  {
+    id: "fighter",
+    name: "!fighter",
+    permission: "follower",
+    commandGroups: ["Super Smash Bros. Ultimate"],
+    description:
+      "This command gives you a fighter to play from Super Smash Bros. Ultimate.",
+  },
+  {
+    id: "firework",
+    name: "!firework",
+    massCompatible: true,
+    permission: "subscriber",
+    commandGroups: ["Avatars"],
+    description: "This command throws your avatar up in the air and explodes.",
+    parameterGroups: [
+      {
+        name: "!firework",
+        usage: "[username]",
+        description:
+          "These options let you throw someone else's avatar up in the air and explodes them.",
+      },
+    ],
+  },
+  {
+    id: "freeze",
+    name: "!freeze",
+    massCompatible: true,
+    permission: "follower",
+    commandGroups: ["Avatars"],
+    description: "This command puts your avatar in a icicle.",
+    parameterGroups: [
+      {
+        name: "!freeze",
+        usage: "[username]",
+        description:
+          "These options let you put someone else's avatar in a icicle.",
+      },
+    ],
+  },
+  {
+    id: "game",
+    name: "!game",
+    aliases: ["!category"],
+    permission: "follower",
+    commandGroups: ["Layman", "Stream"],
+    description: "This command says the game The Layman is currently playing.",
+  },
+  {
+    id: "giftchips",
+    name: "!giftchips",
+    usage: "[username] [amount]",
+    aliases: ["!givechips"],
+    permission: "follower",
+    commandGroups: ["Economy"],
+    description: "This command lets you give someone else some of your chips.",
+  },
+  {
+    id: "headset",
+    name: "!headset",
+    permission: "follower",
+    commandGroups: ["Layman", "Setup"],
+    description: "This command tells you the way Layman hears everything.",
+  },
+  {
+    id: "height",
+    name: "!height",
+    permission: "follower",
+    commandGroups: ["Layman", "Lore"],
+    description: "This command tells you how tall Layman is.",
+  },
+  {
+    id: "hidechrome",
+    name: "!hidechrome",
+    aliases: ["!hide", "!chrome", "!chromeisblockingthestream"],
+    permission: "subscriber",
+    commandGroups: ["OBS", "Stream", "Utility"],
+    description:
+      "This command allows you to hide the chrome window Layman uses that blocks the center of the stream.",
+  },
+  {
+    id: "hug",
+    name: "!hug",
+    massCompatible: true,
+    usage: "[username]",
+    permission: "follower",
+    commandGroups: ["Avatars"],
+    description:
+      "This command gives a warm embrace to someone else's avatar with your avatar.",
+  },
+  {
+    id: "instagram",
+    name: "!instagram",
+    aliases: ["!insta", "!ig"],
+    permission: "follower",
+    commandGroups: ["Layman", "Link", "Social"],
+    description: "This command lets you check out Layman's Instagram.",
+  },
+  {
+    id: "tiktok",
+    name: "!tiktok",
+    permission: "follower",
+    commandGroups: ["Layman", "Link", "Social"],
+    description: "This command lets you check out Layman's TikTok.",
+  },
+  {
+    id: "steam",
+    name: "!steam",
+    permission: "follower",
+    commandGroups: ["Layman", "Link", "Social"],
+    description:
+      "This command lets you check out Layman's Steam and add him as a friend.",
+  },
+  {
+    id: "internetprotocoladdress",
+    name: "!internetprotocoladdress",
+    aliases: ["!ipaddress", "!ip"],
+    permission: "follower",
+    commandGroups: ["Layman", "Lore", "Setup"],
+    description: "This command tells you Layman's IP address.",
+  },
+  {
+    id: "spotify",
+    name: "!spotify",
+    permission: "follower",
+    commandGroups: ["Layman", "Spotify", "Link", "Social"],
+    description: "This command lets you check out Layman's Spotify.",
+  },
+  {
+    id: "spotifyjam",
+    name: "!spotifyjam",
+    aliases: ["!jam"],
+    permission: "follower",
+    commandGroups: ["Spotify", "Link"],
+    description:
+      "This command lets you join Layman's Spotify Jam session. If he started it...",
+  },
+  {
+    id: "setspotifyjam",
+    name: "!setspotifyjam",
+    aliases: ["!setjam"],
+    permission: "moderator",
+    commandGroups: ["Spotify", "Link"],
+    description:
+      "This command sets the Spotify jam session, so all the Laypeople can listen with Layman.",
+  },
+  {
+    id: "resetspotifyjam",
+    name: "!resetspotifyjam",
+    aliases: ["!resetjam"],
+    permission: "moderator",
+    commandGroups: ["Spotify", "Link"],
+    description: "This command resets The Layman's Spotify jam session.",
+  },
+  {
+    id: "joke",
+    name: "!joke",
+    aliases: ["!dadjoke", "!cringejoke"],
+    permission: "subscriber",
+    commandGroups: ["Chance"],
+    description: "This command gives you a HILARIOUS joke to laugh at.",
+    parameterGroups: [
+      {
+        name: "!joke",
+        usage: "chuck",
+        description: "These options give you a joke about Chuck Norris.",
+      },
+    ],
+  },
+  {
+    id: "jump",
+    name: "!jump",
+    massCompatible: true,
+    permission: "follower",
+    commandGroups: ["Avatars", "Mini-game"],
+    description:
+      "This command makes your avatar jump to either celebrate or catch a star.",
+  },
+  {
+    id: "keyboard",
+    name: "!keyboard",
+    permission: "follower",
+    commandGroups: ["Layman", "Setup"],
+    description:
+      "This command tells you what The Layman uses to type everything.",
+  },
+  {
+    id: "leaderboard",
+    name: "!leaderboard",
+    permission: "follower",
+    commandGroups: ["Viewer", "Statistics"],
+    description: "This command lets you see the 5 highest watchtime viewers.",
+  },
+  {
+    id: "location",
+    name: "!location",
+    permission: "follower",
+    commandGroups: ["Layman", "Lore", "Setup"],
+    description: "This command tells you where The Layman is currently at.",
+  },
+  {
+    id: "lounge",
+    name: "!lounge",
+    usage: "[message]",
+    permission: "moderator",
+    commandGroups: ["Discord", "Moderation"],
+    description:
+      "This command sends a message through Francis to the #layman-lounge🛋️ for quick alerts.",
+  },
+  {
+    id: "lurk",
+    name: "!lurk",
+    aliases: ["!brb", "!afk"],
+    permission: "follower",
+    commandGroups: ["Viewer"],
+    description:
+      "This command lets The Layman know that you are stepping away for a bit, so he doesn't just keep talking to himself.",
+  },
+  {
+    id: "unlurk",
+    name: "!unlurk",
+    aliases: ["!back"],
+    permission: "follower",
+    commandGroups: ["Viewer"],
+    description:
+      "This command lets The Layman know that you have returned, so he can yap!",
+  },
+  {
+    id: "myanimelist",
+    name: "!myanimelist",
+    aliases: ["!mal"],
+    permission: "follower",
+    commandGroups: ["Layman", "Lore", "Social"],
+    description:
+      "This command lets you see the animes or mangas that Layman has seen or read.",
+  },
+  {
+    id: "marker",
+    name: "!marker",
+    usage: "[title]",
+    aliases: ["!streammarker", "!highlight", "!highlightmarker"],
+    permission: "moderator",
+    commandGroups: ["Stream", "Twitch"],
+    description:
+      "This command sets a marker at the current stream time, so the layman could look at it again.",
+  },
+  {
+    id: "mass",
+    name: "!mass",
+    usage: "[command]",
+    permission: "moderator",
+    commandGroups: ["Avatars"],
+    description:
+      "This command allows you to make every present avatar do the command you'd like to do also.",
+    parameterGroups: [
+      {
+        name: "!mass",
+        usage: "attack [username]",
+        description:
+          "These options make everyone's avatar charge at someone's avatar.",
+      },
+      {
+        name: "!mass",
+        usage: "bomb",
+        description: "These options rain bombs all over the stream.",
+      },
+      {
+        name: "!mass",
+        usage: "fart",
+        description: "These options make everyone's avatar release some air...",
+      },
+      {
+        name: "!mass",
+        usage: "firework",
+        description:
+          "These options throw everyone's avatar up in the air and explodes them.",
+      },
+      {
+        name: "!mass",
+        usage: "freeze",
+        description: "These options put everyone's avatar into an icicle.",
+      },
+      {
+        name: "!mass",
+        usage: "hug [username]",
+        description:
+          "These options make everyone's avatar hug someone's avatar.",
+      },
+    ],
+  },
+  {
+    id: "microphone",
+    name: "!microphone",
+    aliases: ["!mic"],
+    permission: "follower",
+    commandGroups: ["Layman", "Setup"],
+    description:
+      "This command tells you how Layman sounds so amazing talk to y'all.",
+  },
+  {
+    id: "minigameexclude",
+    name: "!minigame exclude",
+    usage: "[username]",
+    permission: "moderator",
+    commandGroups: ["Avatars", "Mini-game"],
+    description:
+      "This command excludes someone from participating in any avatar minigames.",
+  },
+  {
+    id: "mouse",
+    name: "!mouse",
+    permission: "follower",
+    commandGroups: ["Layman", "Setup"],
+    description:
+      "This command shows you what Layman uses to have such amazing aim.",
+  },
+  {
+    id: "mutediscord",
+    name: "!mutediscord",
+    permission: "moderator",
+    commandGroups: ["OBS", "Stream", "Utility"],
+    description:
+      "This command mutes Discord for the stream only. Meaning Layman can still hear you.",
+  },
+  {
+    id: "unmutediscord",
+    name: "!unmutediscord",
+    permission: "moderator",
+    commandGroups: ["OBS", "Stream", "Utility"],
+    description: "This command unmutes Discord for the stream!",
+  },
+  {
+    id: "mutelayman",
+    name: "!mutelayman",
+    permission: "moderator",
+    commandGroups: ["OBS", "Stream", "Utility"],
+    description: "This command mutes Layman's microphone for stream.",
+  },
+  {
+    id: "pause",
+    name: "!pause",
+    permission: "follower",
+    commandGroups: ["Layman", "Fun"],
+    description: "This command makes The Layman think about what he said...",
+  },
+  {
+    id: "peterpiperwiththepeppers",
+    name: "!peterpiperwiththepeppers",
+    aliases: ["!peterpiper", "!peter"],
+    permission: "follower",
+    commandGroups: ["Fun"],
+    description:
+      "This command says a tongue twister about Peter Piper for Layman to say.",
+  },
+  {
+    id: "tonguetwister",
+    name: "!tonguetwister",
+    aliases: ["!twister"],
+    permission: "follower",
+    commandGroups: ["Fun", "Chance"],
+    description:
+      "This command says a tongue twister about Peter Piper for Layman to possilby say.",
+  },
+  {
+    id: "pin",
+    name: "!pin",
+    permission: "subscriber",
+    commandGroups: ["Avatars"],
+    description: "This command pins your avatar in place.",
+    parameterGroups: [
+      {
+        name: "!pin",
+        usage: "[x] [y]",
+        description: "These options pin your avatar at specific coordinates.",
+      },
+      {
+        name: "!pin",
+        usage: "[username]",
+        description: "These options pin someone else's avatar.",
+      },
+      {
+        name: "!pin",
+        usage: "[username] [x] [y]",
+        description:
+          "These options pin someone else's avatar at specific coordinates.",
+      },
+    ],
+  },
+  {
+    id: "pokeball",
+    name: "!pokeball",
+    permission: "follower",
+    commandGroups: ["Pokémon", "Fun", "Chance"],
+    description: "This command throws a pokeball to catch a wild Pokemon.",
+  },
+  {
+    id: "pokepc",
+    name: "!pokepc",
+    aliases: ["!pokedex"],
+    permission: "follower",
+    commandGroups: ["Pokémon"],
+    description: "This command shows your Pokemon collection.",
+  },
+  {
+    id: "answerquestionofthestream",
+    name: "!answerquestionofthestream",
+    usage: "[answer]",
+    aliases: ["!answerqots"],
+    permission: "follower",
+    commandGroups: ["Viewer", "Interactive"],
+    description: "This command answers the question of the stream.",
+  },
+  {
+    id: "setquestionofthestream",
+    name: "!setquestionofthestream",
+    usage: "[question]",
+    aliases: ["!setqots", "!updatequestionofthestream", "!updateqots"],
+    permission: "follower",
+    commandGroups: ["Viewer", "Interactive"],
+    description: "This command answers the question of the stream.",
+  },
+  {
+    id: "randomviewer",
+    name: "!randomviewer",
+    aliases: ["!randomuser", "!viewer", "!user"],
+    permission: "moderator",
+    commandGroups: ["Viewer", "Moderation"],
+    description: "This command picks a random viewer from chat.",
+  },
+  {
+    id: "rank",
+    name: "!rank",
+    aliases: ["!ranks"],
+    permission: "follower",
+    commandGroups: ["Viewer", "Statistics"],
+    description: "This command shows your current rank in the community.",
+  },
+  {
+    id: "refreshspotify",
+    name: "!refreshspotify",
+    permission: "moderator",
+    commandGroups: ["OBS", "Spotify"],
+    description: "This command refreshes the Spotify overlay.",
+  },
+  {
+    id: "setreminder",
+    name: "!setreminder",
+    usage: "[message]",
+    aliases: ["!reminder", "!remind", "!remember"],
+    permission: "moderator",
+    commandGroups: ["Stream", "Utility"],
+    description: "This command sets a reminder for Layman.",
+  },
+  {
+    id: "removechips",
+    name: "!removechips",
+    usage: "[username] [amount]",
+    permission: "moderator",
+    commandGroups: ["Economy"],
+    description: "This command removes The Layman's currency from a viewer.",
+    parameterGroups: [
+      {
+        name: "!removechips",
+        usage: "all [amount]",
+        description:
+          "These options remove The Layman's currency from all viewers present in the chat.",
+      },
+    ],
+  },
+  {
+    id: "resetlobby",
+    name: "!resetlobby",
+    aliases: ["!resetroom", "!resetarena"],
+    permission: "moderator",
+    commandGroups: ["Viewer", "Interactive"],
+    description: "This command resets the current lobby information.",
+  },
+  {
+    id: "setlobby",
+    name: "!setlobby",
+    aliases: ["!setroom", "!setarena"],
+    permission: "moderator",
+    commandGroups: ["Viewer", "Interactive"],
+    description: "This command sets the lobby information for people to join.",
+  },
+  {
+    id: "richest",
+    name: "!richest",
+    permission: "follower",
+    commandGroups: ["Economy", "Statistics"],
+    description: "This command shows the richest viewers in chat.",
+  },
+  {
+    id: "rizz",
+    name: "!rizz",
+    permission: "follower",
+    commandGroups: ["Chance", "Fun"],
+    description: "This command checks your rizz level.",
+    parameterGroups: [
+      {
+        name: "!rizz",
+        usage: "[username]",
+        description:
+          "These options check someone else's rizz level if they have done it already.",
+      },
+    ],
+  },
+  {
+    id: "lobby",
+    name: "!lobby",
+    aliases: ["!room", "!arena"],
+    permission: "follower",
+    commandGroups: ["Viewer", "Interactive"],
+    description: "This command shows the current lobby information.",
+  },
+  {
+    id: "watchtime",
+    name: "!watchtime",
+    permission: "follower",
+    commandGroups: ["Viewer", "Statistics"],
+    description:
+      "This command shows how much time you have spent with The Layman.",
+  },
+  {
+    id: "rockpaperscissors",
+    name: "!rockpaperscissors",
+    usage: "[amount] [choice]",
+    aliases: ["!rps"],
+    permission: "follower",
+    commandGroups: ["Economy", "Gamble"],
+    description:
+      "This command lets you battle Francis in the most serious game ever. Never go rock first...",
+    parameterGroups: [
+      {
+        name: "!rockpaperscissors",
+        usage: "[amount] rock",
+        aliases: ["r"],
+        description: "These options play rock against Francis.",
+      },
+      {
+        name: "!rockpaperscissors",
+        usage: "[amount] paper",
+        aliases: ["p"],
+        description: "These options play paper against Francis.",
+      },
+      {
+        name: "!rockpaperscissors",
+        usage: "[amount] scissors",
+        aliases: ["s"],
+        description: "These options play scissors against Francis.",
+      },
+    ],
+  },
+  {
+    id: "slots",
+    name: "!slots",
+    usage: "[amount]",
+    permission: "follower",
+    commandGroups: ["Economy", "Gamble"],
+    description:
+      "This command gives you a spin of a slot machine with the potential for a 5X multiplier payout!",
+  },
+  {
+    id: "roulette",
+    name: "!roulette",
+    usage: "[amount] [choice]",
+    permission: "subscriber",
+    commandGroups: ["Economy", "Gamble"],
+    description:
+      "This command lets you spin the wheel and test your luck against Francis.",
+    parameterGroups: [
+      {
+        name: "!roulette",
+        usage: "[amount] [0-36]",
+        description:
+          "These options bet on rolling a specific number between 0 and 36.",
+      },
+      {
+        name: "!roulette",
+        usage: "[amount] 1st12",
+        description:
+          "These options bet on rolling one of the first dozen numbers being 1 through 12.",
+      },
+      {
+        name: "!roulette",
+        usage: "[amount] 2nd12",
+        description:
+          "These options bet on rolling one of the second dozen numbers being 13 through 24.",
+      },
+      {
+        name: "!roulette",
+        usage: "[amount] 3rd12",
+        description:
+          "These options bet on rolling one of the final dozen numbers being 25 through 36.",
+      },
+      {
+        name: "!roulette",
+        usage: "[amount] purple",
+        description: "These options bet on rolling a purple number.",
+      },
+      {
+        name: "!roulette",
+        usage: "[amount] black",
+        description: "These options bet on rolling a black number.",
+      },
+      {
+        name: "!roulette",
+        usage: "[amount] green",
+        description: "These options bet on rolling the green number.",
+      },
+      {
+        name: "!roulette",
+        usage: "[amount] odd",
+        description: "These options bet on rolling an odd number.",
+      },
+      {
+        name: "!roulette",
+        usage: "[amount] even",
+        description: "These options bet on rolling an even number.",
+      },
+    ],
+  },
+  {
+    id: "clashroyale",
+    name: "!clashroyale",
+    permission: "follower",
+    commandGroups: ["Layman", "Gamertag"],
+    description: "This command gives you the Layman's Clan Tag!",
+  },
+  {
+    id: "epicgames",
+    name: "!epicgames",
+    aliases: ["!epic"],
+    permission: "follower",
+    commandGroups: ["Layman", "Gamertag"],
+    description: "This command says Layman's Epic Games gamertag.",
+  },
+  {
+    id: "followerage",
+    name: "!followerage",
+    aliases: ["!followage"],
+    permission: "follower",
+    commandGroups: ["Viewer", "Statistics"],
+    description:
+      "This command tells us how long you have been following The Layman.",
+  },
+  {
+    id: "subscriberage",
+    name: "!subscriberage",
+    aliases: ["!subage"],
+    permission: "follower",
+    commandGroups: ["Viewer", "Statistics"],
+    description:
+      "This command tells us how long you have been subscribing to The Layman.",
+  },
+  {
+    id: "valorant",
+    name: "!valorant",
+    aliases: [
+      "!valo",
+      "!val",
+      "!leagueoflegends",
+      "!league",
+      "!lol",
+      "!teamfighttactics",
+      "!tft",
+    ],
+    permission: "follower",
+    commandGroups: ["Layman", "Gamertag"],
+    description: "This command says Layman's VALORANT gamertag.",
+  },
+  {
+    id: "minecraft",
+    name: "!minecraft",
+    aliases: ["!xbox"],
+    permission: "follower",
+    commandGroups: ["Layman", "Gamertag"],
+    description: "This command says Layman's Minecraft gamertag.",
+  },
+  {
+    id: "roblox",
+    name: "!roblox",
+    permission: "follower",
+    commandGroups: ["Layman", "Gamertag"],
+    description: "This command says Layman's Roblox gamertag.",
+  },
+  {
+    id: "pcspecifications",
+    name: "!pcspecifications",
+    aliases: ["!pcspecs", "!specifications", "!specs"],
+    permission: "follower",
+    commandGroups: ["Layman", "Setup"],
+    description: "This command shares Layman's PC build.",
+  },
+  {
+    id: "peakranks",
+    name: "!peakranks",
+    aliases: ["!peaks"],
+    permission: "follower",
+    commandGroups: ["Layman", "Lore"],
+    description:
+      "This command tells you how good The Layman before things happened...",
+  },
+  {
+    id: "ranks",
+    name: "!ranks",
+    permission: "follower",
+    commandGroups: ["Layman", "Lore"],
+    description:
+      "This command shares the current placement of the ranked games Layman plays.",
+  },
+  {
+    id: "sensitivity",
+    name: "!sensitivity",
+    aliases: ["!sens"],
+    permission: "follower",
+    commandGroups: ["Layman", "Setup"],
+    description:
+      "This command tells you how Layman has his sensitivity set up.",
+  },
+  {
+    id: "sob",
+    name: "!sob",
+    permission: "follower",
+    commandGroups: ["Special", "Fun", "Chance"],
+    description:
+      "This command says an upsetting message designed by Cherrios_02.",
+    parameterGroups: [
+      {
+        name: "!sob",
+        usage: "max",
+        description:
+          "These options say an even more upsetting message designed by Cherrios_02.",
+      },
+    ],
+  },
+  {
+    id: "socialsecuritynumber",
+    name: "!socialsecuritynumber",
+    aliases: ["!socialsecurity", "ssn"],
+    permission: "follower",
+    commandGroups: ["Layman", "Lore"],
+    description: "This command says Layman's special numbers.",
+  },
+  {
+    id: "checkuser",
+    name: "!checkuser",
+    permission: "streamer",
+    commandGroups: ["Viewer"],
+    description:
+      "This command checks if a viewer's is real and returns their primary role.",
+  },
+  {
+    id: "wtc",
+    name: "wtc",
+    permission: "follower",
+    commandGroups: ["Fun"],
+    description:
+      "This command says The Layman's famous quote that will one day be said by the ENTIRE world.",
+  },
+  {
+    id: "song",
+    name: "!song",
+    permission: "follower",
+    commandGroups: ["Spotify"],
+    description:
+      "This command tells us the current song The Layman is hearing.",
+  },
+  {
+    id: "settimer",
+    name: "!settimer [time] [title]",
+    aliases: ["setcountdown"],
+    permission: "moderator",
+    commandGroups: ["Utility"],
+    description:
+      "This command sets a timer so The Layman doesn't forget about something... hopefully.",
+    parameterGroups: [
+      {
+        name: "!settimer",
+        usage: "[number]H[number]M[number]S",
+        description:
+          "These options set an exact hour(s), minute(s), and second(s) until the timer is over.",
+      },
+      {
+        name: "!settimer",
+        usage: "[number]H",
+        description:
+          "These options set a timer for the amount of hour(s) that you set.",
+      },
+      {
+        name: "!settimer",
+        usage: "[number]M",
+        description:
+          "These options set a timer for the amount of minute(s) that you set.",
+      },
+      {
+        name: "!settimer",
+        usage: "[number]S",
+        description:
+          "These options set a timer for the amount of second(s) that you set.",
+      },
+    ],
+  },
+  {
+    id: "tal",
+    name: "tal",
+    permission: "follower",
+    commandGroups: ["Special", "Fun"],
+    description: "This command says a funny message designed by talopedia.",
+  },
+  {
+    id: "test",
+    name: "!test",
+    permission: "moderator",
+    commandGroups: ["Utility"],
+    description: "This command is used by The Layman to test things for y'all!",
+  },
+  {
+    id: "newwordle",
+    name: "!newwordle",
+    aliases: ["!playagain"],
+    permission: "follower",
+    commandGroups: ["Fun", "Mini-game"],
+    description: "This command starts a new game of Wordle.",
+  },
+  {
+    id: "wordle",
+    name: "!wordle",
+    usage: "[guess]",
+    permission: "follower",
+    commandGroups: ["Fun", "Mini-game"],
+    description: "This command lets you make a guess in the current Wordle.",
+  },
+  {
+    id: "clearwordle",
+    name: "!clearwordle",
+    permission: "follower",
+    commandGroups: ["Fun", "Mini-game"],
+    description: "This command clears a bad guess in the current Wordle.",
+  },
+  {
+    id: "disablewordle",
+    name: "!disablewordle",
+    permission: "moderator",
+    commandGroups: ["Fun", "Mini-game"],
+    description: "This command prevents the Laypeople from playing Wordle.",
+  },
+  {
+    id: "enablewordle",
+    name: "!enablewordle",
+    permission: "streamer",
+    commandGroups: ["Fun", "Mini-game"],
+    description: "This command allows the Laypeople to play Wordle.",
+  },
+  {
+    id: "quote",
+    name: "!quote",
+    permission: "streamer",
+    commandGroups: ["Layman", "Lore", "Fun"],
+    description: "This command says a random quote that The Layman has said.",
+    parameterGroups: [
+      {
+        name: "!quote",
+        usage: "[number]",
+        description:
+          "These options say the exact quote associated with the number you put.",
+      },
+    ],
+  },
+  {
+    id: "quotes",
+    name: "!quotes",
+    permission: "streamer",
+    commandGroups: ["Layman", "Lore", "Fun"],
+    description:
+      "This command gives you the link to see all of Layman's quotes.",
+  },
+  {
+    id: "addquote",
+    name: "!addquote",
+    permission: "streamer",
+    commandGroups: ["Layman", "Lore", "Fun"],
+    description: "This command allows the Laypeople to play Wordle.",
+  },
+  {
+    id: "removequote",
+    name: "!removequote",
+    aliases: ["!deletequote"],
+    permission: "streamer",
+    commandGroups: ["Layman", "Lore", "Fun"],
+    description: "This command allows the Laypeople to play Wordle.",
+  },
+  {
+    id: "lastquote",
+    name: "!lastquote",
+    permission: "streamer",
+    commandGroups: ["Layman", "Lore", "Fun"],
+    description: "This command allows the Laypeople to play Wordle.",
+  },
+];

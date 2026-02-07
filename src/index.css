@@ -1,0 +1,205 @@
+@import "@fontsource/plus-jakarta-sans/400.css";
+@import "@fontsource/plus-jakarta-sans/500.css";
+@import "@fontsource/plus-jakarta-sans/600.css";
+@import "@fontsource/plus-jakarta-sans/700.css";
+@import "@fontsource/plus-jakarta-sans/800.css";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/500.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 270 60% 8%;
+    --foreground: 270 20% 95%;
+    --card: 270 40% 12%;
+    --card-foreground: 270 20% 95%;
+    --popover: 270 40% 12%;
+    --popover-foreground: 270 20% 95%;
+    --primary: 270 80% 65%;
+    --primary-foreground: 270 60% 8%;
+    --secondary: 270 30% 20%;
+    --secondary-foreground: 270 20% 90%;
+    --muted: 270 25% 18%;
+    --muted-foreground: 270 15% 60%;
+    --accent: 280 70% 55%;
+    --accent-foreground: 270 20% 95%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 270 30% 25%;
+    --input: 270 30% 20%;
+    --ring: 270 80% 65%;
+    --radius: 0.75rem;
+    --gradient-bg: linear-gradient(135deg, hsl(270, 60%, 8%) 0%, hsl(280, 70%, 12%) 50%, hsl(260, 50%, 6%) 100%);
+    --gradient-primary: linear-gradient(135deg, hsl(270, 80%, 65%) 0%, hsl(290, 70%, 55%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(270, 40%, 14%) 0%, hsl(270, 35%, 10%) 100%);
+    --gradient-scrollbar: linear-gradient(to bottom, hsl(270, 80%, 75%), hsl(270, 100%, 50%));
+    --glass-bg: hsla(270, 40%, 15%, 0.6);
+    --glass-border: hsla(270, 50%, 40%, 0.3);
+    --perm-follower: 200 80% 55%;
+    --perm-subscriber: 45 90% 55%;
+    --perm-moderator: 150 70% 45%;
+    --perm-streamer: 270 100% 50%;
+    --layman-brand: 270 100% 50%;
+    --game-badge: 270 50% 25%;
+    --game-badge-foreground: 270 20% 90%;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 270 60% 8%;
+    --foreground: 270 20% 95%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    background: var(--gradient-bg);
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  code, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(12px);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-primary {
+    box-shadow: 0 0 30px hsla(270, 80%, 65%, 0.3);
+  }
+
+  .scrollbar-styled {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(270, 100%, 60%) transparent;
+  }
+
+  .scrollbar-styled::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .scrollbar-styled::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .scrollbar-styled::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, hsl(270, 100%, 71%), hsl(270, 100%, 50%));
+    border-radius: 9999px;
+  }
+
+  .scrollbar-styled::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(to bottom, hsl(270, 100%, 75%), hsl(270, 100%, 55%));
+  }
+
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px hsla(270, 80%, 65%, 0.2);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-down {
+    animation: slideDown 0.2s ease-out;
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-badge-pop {
+    animation: badgePop 0.25s ease-out both;
+  }
+
+  @keyframes badgePop {
+    0% {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+    60% {
+      transform: scale(1.08);
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .animate-badge-shrink {
+    animation: badgeShrink 0.2s ease-out forwards;
+  }
+
+  @keyframes badgeShrink {
+    from {
+      transform: scale(1);
+      opacity: 1;
+    }
+    to {
+      transform: scale(0.7);
+      opacity: 0;
+    }
+  }
+}

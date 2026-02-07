@@ -536,7 +536,7 @@ export const commands: Command[] = [
   },
   {
     id: "escape",
-    name: "!escape",
+    name: "escape",
     permission: "follower",
     commandGroups: ["Special", "Fun"],
     description: "This command says a funny message designed by TheOracleMind.",

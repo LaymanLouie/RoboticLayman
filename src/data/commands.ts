@@ -114,6 +114,7 @@ export const commands: Command[] = [
   {
     id: "setdeaths",
     name: "!setdeaths",
+    usage: "[number]",
     aliases: ["!setdeath"],
     permission: "moderator",
     commandGroups: ["Layman", "Death"],
@@ -123,7 +124,8 @@ export const commands: Command[] = [
   {
     id: "settotaldeaths",
     name: "!settotaldeaths",
-    aliases: ["!settotaldeaths"],
+    usage: "[number]",
+    aliases: ["!settotaldeath"],
     permission: "moderator",
     commandGroups: ["Layman", "Death"],
     description:
@@ -540,6 +542,13 @@ export const commands: Command[] = [
     description: "This command says a funny message designed by TheOracleMind.",
   },
   {
+    id: "milk",
+    name: "milk",
+    permission: "follower",
+    commandGroups: ["Special", "Fun"],
+    description: "This command says a funny message designed by nowat101.",
+  },
+  {
     id: "explode",
     name: "!explode",
     massCompatible: true,
@@ -722,6 +731,7 @@ export const commands: Command[] = [
   {
     id: "setspotifyjam",
     name: "!setspotifyjam",
+    usage: "[link]",
     aliases: ["!setjam"],
     permission: "moderator",
     commandGroups: ["Spotify", "Link"],
@@ -787,7 +797,7 @@ export const commands: Command[] = [
     name: "!lounge",
     usage: "[message]",
     permission: "moderator",
-    commandGroups: ["Discord", "Moderation"],
+    commandGroups: ["Discord"],
     description:
       "This command sends a message through Francis to the #layman-lounge🛋️ for quick alerts.",
   },
@@ -814,7 +824,7 @@ export const commands: Command[] = [
     name: "!myanimelist",
     aliases: ["!mal"],
     permission: "follower",
-    commandGroups: ["Layman", "Lore", "Social"],
+    commandGroups: ["Layman", "Lore", "Social", "Link"],
     description:
       "This command lets you see the animes or mangas that Layman has seen or read.",
   },
@@ -940,7 +950,7 @@ export const commands: Command[] = [
     id: "tonguetwister",
     name: "!tonguetwister",
     aliases: ["!twister"],
-    permission: "follower",
+    permission: "subscriber",
     commandGroups: ["Fun", "Chance"],
     description:
       "This command says a tongue twister about Peter Piper for Layman to possilby say.",
@@ -973,7 +983,7 @@ export const commands: Command[] = [
   {
     id: "pokeball",
     name: "!pokeball",
-    permission: "follower",
+    permission: "subscriber",
     commandGroups: ["Pokémon", "Fun", "Chance"],
     description: "This command throws a pokeball to catch a wild Pokemon.",
   },
@@ -981,7 +991,14 @@ export const commands: Command[] = [
     id: "pokepc",
     name: "!pokepc",
     aliases: ["!pokedex"],
-    permission: "follower",
+    permission: "subscriber",
+    commandGroups: ["Pokémon"],
+    description: "This command shows your Pokemon collection.",
+  },
+  {
+    id: "pokemiss",
+    name: "!pokemiss",
+    permission: "subscriber",
     commandGroups: ["Pokémon"],
     description: "This command shows your Pokemon collection.",
   },
@@ -1012,11 +1029,10 @@ export const commands: Command[] = [
     description: "This command picks a random viewer from chat.",
   },
   {
-    id: "rank",
-    name: "!rank",
-    aliases: ["!ranks"],
+    id: "ranks",
+    name: "!ranks",
     permission: "follower",
-    commandGroups: ["Viewer", "Statistics"],
+    commandGroups: ["Layman", "Statistics"],
     description: "This command shows your current rank in the community.",
   },
   {
@@ -1030,7 +1046,7 @@ export const commands: Command[] = [
     id: "setreminder",
     name: "!setreminder",
     usage: "[message]",
-    aliases: ["!reminder", "!remind", "!remember"],
+    aliases: ["!remember"],
     permission: "moderator",
     commandGroups: ["Stream", "Utility"],
     description: "This command sets a reminder for Layman.",
@@ -1062,6 +1078,7 @@ export const commands: Command[] = [
   {
     id: "setlobby",
     name: "!setlobby",
+    usage: "[code]",
     aliases: ["!setroom", "!setarena"],
     permission: "moderator",
     commandGroups: ["Viewer", "Interactive"],
@@ -1308,13 +1325,13 @@ export const commands: Command[] = [
     permission: "follower",
     commandGroups: ["Special", "Fun", "Chance"],
     description:
-      "This command says an upsetting message designed by Cherrios_02.",
+      "This command says an upsetting message designed by cherrrios.",
     parameterGroups: [
       {
         name: "!sob",
         usage: "max",
         description:
-          "These options say an even more upsetting message designed by Cherrios_02.",
+          "These options say an even more upsetting message designed by cherrrioss.",
       },
     ],
   },
@@ -1332,7 +1349,7 @@ export const commands: Command[] = [
     permission: "streamer",
     commandGroups: ["Viewer"],
     description:
-      "This command checks if a viewer's is real and returns their primary role.",
+      "This command checks if a viewer's real and returns their primary role.",
   },
   {
     id: "wtc",
@@ -1352,7 +1369,8 @@ export const commands: Command[] = [
   },
   {
     id: "settimer",
-    name: "!settimer [time] [title]",
+    name: "!settimer",
+    usage: "[time]",
     aliases: ["setcountdown"],
     permission: "moderator",
     commandGroups: ["Utility"],
@@ -1439,9 +1457,9 @@ export const commands: Command[] = [
   {
     id: "quote",
     name: "!quote",
-    permission: "streamer",
+    permission: "follower",
     commandGroups: ["Layman", "Lore", "Fun"],
-    description: "This command says a random quote that The Layman has said.",
+    description: "This command tells us all a random quote that The Layman has said.",
     parameterGroups: [
       {
         name: "!quote",
@@ -1454,7 +1472,7 @@ export const commands: Command[] = [
   {
     id: "quotes",
     name: "!quotes",
-    permission: "streamer",
+    permission: "follower",
     commandGroups: ["Layman", "Lore", "Fun"],
     description:
       "This command gives you the link to see all of Layman's quotes.",
@@ -1462,23 +1480,59 @@ export const commands: Command[] = [
   {
     id: "addquote",
     name: "!addquote",
-    permission: "streamer",
+    usage: "[text]",
+    permission: "follower",
     commandGroups: ["Layman", "Lore", "Fun"],
-    description: "This command allows the Laypeople to play Wordle.",
+    description: "This command allows the Laypeople to add something... funny that The Layman said. Heheh.",
   },
   {
     id: "removequote",
     name: "!removequote",
+    usage: "[number]",
     aliases: ["!deletequote"],
-    permission: "streamer",
+    permission: "moderator",
     commandGroups: ["Layman", "Lore", "Fun"],
-    description: "This command allows the Laypeople to play Wordle.",
+    description: "This command lets the Layman Legion remove a quote that shouldn't have been added.",
   },
   {
     id: "lastquote",
     name: "!lastquote",
-    permission: "streamer",
+    permission: "follower",
     commandGroups: ["Layman", "Lore", "Fun"],
-    description: "This command allows the Laypeople to play Wordle.",
+    description: "This command shows you the last thing Layman was quoted on.",
+  },
+  {
+    id: "setgame",
+    name: "!setgame",
+    usage: "[text]",
+    aliases: ["!setcategory", "!changegame", "!changecategory", "!updategame", "!updatecategory"],
+    permission: "moderator",
+    commandGroups: ["Stream"],
+    description: "This command sets the game to whatever The Layman is playing!",
+  },
+  {
+    id: "settitle",
+    name: "!settitle",
+    usage: "[text]",
+    aliases: ["!changetitle", "!updatetitle"],
+    permission: "moderator",
+    commandGroups: ["Stream"],
+    description: "This command sets the title to whatever the Layman Legion sets!",
+  },
+  {
+    id: "raidmessage",
+    name: "!raidmessage",
+    aliases: ["!raid"],
+    permission: "moderator",
+    commandGroups: ["Stream"],
+    description: "This command gives a fun message to use for a raid!",
+  },
+  {
+    id: "spotifyplaylist",
+    name: "!spotifyplaylist",
+    aliases: ["!playlist"],
+    permission: "follower",
+    commandGroups: ["Layman", "Spotify", "Link"],
+    description: "This command shares the playlist Layman uses for strem!",
   },
 ];

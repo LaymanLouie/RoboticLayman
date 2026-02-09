@@ -1542,4 +1542,11 @@ export const commands: Command[] = [
     commandGroups: ["Fun"],
     description: "This command says the best number in math.",
   },
+  {
+    id: "pie",
+    name: "!pie",
+    permission: "subscriber",
+    commandGroups: ["Fun", "Chance"],
+    description: "This command tells you how to make that pie you were thinking about earlier.",
+  },
 ];

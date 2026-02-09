@@ -1549,4 +1549,11 @@ export const commands: Command[] = [
     commandGroups: ["Fun", "Chance"],
     description: "This command tells you how to make that pie you were thinking about earlier.",
   },
+  {
+    id: "stopwatch",
+    name: "!stopwatch",
+    permission: "follower",
+    commandGroups: ["Fun", "Utility"],
+    description: "This command starts a stopwatch for The Layman.",
+  },
 ];

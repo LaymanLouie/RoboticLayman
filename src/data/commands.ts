@@ -1535,4 +1535,11 @@ export const commands: Command[] = [
     commandGroups: ["Layman", "Spotify", "Link"],
     description: "This command shares the playlist Layman uses for strem!",
   },
+  {
+    id: "pi",
+    name: "!pi",
+    permission: "subscriber",
+    commandGroups: ["Fun"],
+    description: "This command says the best number in math.",
+  },
 ];

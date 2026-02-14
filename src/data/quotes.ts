@@ -154,4 +154,10 @@ export const quotes: Quote[] = [
     game: "Just Chatting",
     timestamp: "12/20/25 02:03",
   },
+  {
+    number: 26,
+    quote: "Do me again.",
+    game: "Just Chatting",
+    timestamp: "02/07/26 11:53",
+  },
 ];

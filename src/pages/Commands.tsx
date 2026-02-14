@@ -145,7 +145,7 @@ const Commands = memo(function Commands() {
           />
         </motion.div>
 
-        <mdiv
+        <div
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-2 3xl:grid-cols-3 gap-4 items-stretch"
         >

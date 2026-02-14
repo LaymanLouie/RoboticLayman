@@ -1578,7 +1578,6 @@ export const commands: Command[] = [
     commandGroups: ["Fun", "Utility"],
     description: "This command ends the stopwatch.",
   },
-  },
   {
     id: "chase",
     name: "!chase",
@@ -1594,8 +1593,8 @@ export const commands: Command[] = [
     description: "This command starts the chase!",
   },
   {
-    id: "endstopwatch",
-    name: "!endstopwatch",
+    id: "endchase",
+    name: "!endchase",
     permission: "follower",
     commandGroups: ["Fun", "Utility"],
     description: "This command says how long The Layman was chased OR ACTUALLY ESCAPED!",

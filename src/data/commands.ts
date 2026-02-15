@@ -1029,13 +1029,6 @@ export const commands: Command[] = [
     description: "This command picks a random viewer from chat.",
   },
   {
-    id: "ranks",
-    name: "!ranks",
-    permission: "follower",
-    commandGroups: ["Layman", "Statistics"],
-    description: "This command shows your current rank in the community.",
-  },
-  {
     id: "refreshspotify",
     name: "!refreshspotify",
     permission: "moderator",

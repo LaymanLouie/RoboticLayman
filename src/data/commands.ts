@@ -1592,7 +1592,6 @@ export const commands: Command[] = [
     commandGroups: ["Fun", "Utility"],
     description: "This command says how long The Layman was chased OR ACTUALLY ESCAPED!",
   },
-  },
   {
     id: "spawn",
     name: "!spawn game",

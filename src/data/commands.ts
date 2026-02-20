@@ -1583,7 +1583,7 @@ export const commands: Command[] = [
     name: "!startchase",
     permission: "follower",
     commandGroups: ["Fun", "Utility"],
-    description: "This command starts the chase!",
+    description: "This command starts the chase The Layman has entered.",
   },
   {
     id: "endchase",
@@ -1591,5 +1591,13 @@ export const commands: Command[] = [
     permission: "follower",
     commandGroups: ["Fun", "Utility"],
     description: "This command says how long The Layman was chased OR ACTUALLY ESCAPED!",
+  },
+  },
+  {
+    id: "spawn",
+    name: "!spawn game",
+    permission: "moderator",
+    commandGroups: ["Avatars", "Mini-game", "Fun"],
+    description: "This command spawns a star to catch!",
   },
 ];

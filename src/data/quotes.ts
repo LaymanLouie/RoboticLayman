@@ -132,7 +132,7 @@ export const quotes: Quote[] = [
   },
   {
     number: 22,
-    quote: "I can't go more than 4 seconds...especially with Oracle",
+    quote: "I can't go more than 4 seconds...especially with Oracle.",
     game: "Dead by Daylight",
     timestamp: "11/18/25 23:57",
   },
@@ -159,5 +159,11 @@ export const quotes: Quote[] = [
     quote: "Do me again.",
     game: "Just Chatting",
     timestamp: "02/07/26 11:53",
+  },
+  {
+    number: 27,
+    quote: "Good girl.",
+    game: "Just Chatting",
+    timestamp: "02/28/26 11:53",
   },
 ];

@@ -1361,6 +1361,22 @@ export const commands: Command[] = [
       "This command tells us the current song The Layman is hearing.",
   },
   {
+    id: "lastsong",
+    name: "!lastsong",
+    permission: "follower",
+    commandGroups: ["Spotify"],
+    description:
+      "This command tells us the song that The Layman had just played before this one.",
+  },
+  {
+    id: "songcorrection",
+    name: "!songcorrection",
+    permission: "moderator",
+    commandGroups: ["Spotify"],
+    description:
+      "This command lets the Layman Legion queue the correct song since SOMEONEEEE messed it up.",
+  },
+  {
     id: "settimer",
     name: "!settimer",
     usage: "[time]",
@@ -1395,13 +1411,6 @@ export const commands: Command[] = [
           "These options set a timer for the amount of second(s) that you set.",
       },
     ],
-  },
-  {
-    id: "tal",
-    name: "tal",
-    permission: "follower",
-    commandGroups: ["Special", "Fun"],
-    description: "This command says a funny message designed by talopedia.",
   },
   {
     id: "test",

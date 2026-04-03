@@ -1,5 +1,5 @@
 import { memo } from "react";
-import BaseBadge from "@/components/ui/BaseBadge";
+import BaseBadge from "./ui/BaseBadge";
 import { getTagColor } from "@/lib/tagColors";
 
 interface TagBadgeProps {
@@ -7,25 +7,20 @@ interface TagBadgeProps {
   size?: "sm" | "md";
   isActive?: boolean;
   onClick?: () => void;
-  className?: string;
 }
 
-const TagBadge = memo(function TagBadge({
-  tag,
-  size = "sm",
-  isActive = true,
-  onClick,
-  className,
-}: TagBadgeProps) {
+const TagBadge = memo(function TagBadge({ tag, size = "sm", isActive = true, onClick }: TagBadgeProps) {
+  const color = getTagColor(tag);
+  const isPremium = tag.toLowerCase() === "layman";
+
   return (
     <BaseBadge
       label={tag}
-      color={getTagColor(tag)}
+      color={color}
       size={size}
       isActive={isActive}
       onClick={onClick}
-      className={className}
-      useEnhanced={tag.toLowerCase() === "layman"}
+      useEnhanced={isPremium}
     />
   );
 });

@@ -35,14 +35,14 @@ const Navigation = memo(function Navigation() {
   const startIdleTimer = useCallback(() => {
     clearTimeout(idleTimerRef.current);
     idleTimerRef.current = setTimeout(() => {
-      setIdleGlowIndex(0);
-      const t1 = setTimeout(() => setIdleGlowIndex(1), GLOW_STEP_DURATION);
-      const t2 = setTimeout(() => setIdleGlowIndex(2), GLOW_STEP_DURATION * 2);
-      const t3 = setTimeout(() => {
-        setIdleGlowIndex(null);
-        startIdleTimer();
-      }, GLOW_STEP_DURATION * 3);
-      glowSequenceRef.current = [t1, t2, t3];
+      const runCycle = () => {
+        setIdleGlowIndex(0);
+        const t1 = setTimeout(() => setIdleGlowIndex(1), GLOW_STEP_DURATION);
+        const t2 = setTimeout(() => setIdleGlowIndex(2), GLOW_STEP_DURATION * 2);
+        const t3 = setTimeout(() => runCycle(), GLOW_STEP_DURATION * 3);
+        glowSequenceRef.current = [t1, t2, t3];
+      };
+      runCycle();
     }, IDLE_GLOW_TIMEOUT);
   }, []);
 

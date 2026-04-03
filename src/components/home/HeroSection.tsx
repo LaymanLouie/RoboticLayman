@@ -30,7 +30,7 @@ const HeroSection = memo(function HeroSection() {
   useEffect(() => {
     timerRef.current = setTimeout(() => setShowArrow(true), IDLE_TIMEOUT);
 
-    const events = ["mousemove", "scroll", "keydown", "touchstart", "click"] as const;
+    const events = ["mousemove", "keydown", "touchstart", "click"] as const;
     events.forEach((e) => window.addEventListener(e, resetIdle, { passive: true }));
 
     return () => {
@@ -41,9 +41,15 @@ const HeroSection = memo(function HeroSection() {
 
   useEffect(() => {
     return scrollYProgress.on("change", (v) => {
-      if (v > 0.15) setShowArrow(false);
+      if (v > 0.05) {
+        setShowArrow(false);
+        clearTimeout(timerRef.current);
+      } else if (v <= 0.05) {
+        clearTimeout(timerRef.current);
+        timerRef.current = setTimeout(() => setShowArrow(true), IDLE_TIMEOUT);
+      }
     });
-  }, [scrollYProgress]);
+  }, [scrollYProgress, resetIdle]);
 
   const scrollToContent = () => {
     const hero = ref.current;

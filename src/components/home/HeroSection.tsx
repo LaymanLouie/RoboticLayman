@@ -1,8 +1,11 @@
-import { memo, useRef } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { memo, useRef, useState, useEffect, useCallback } from "react";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 import { EASING, DURATION } from "@/lib/constants";
 import GradientText from "@/components/ui/GradientText";
 import avatar from "@/assets/avatar.png";
+
+const IDLE_TIMEOUT = 5000;
 
 const HeroSection = memo(function HeroSection() {
   const ref = useRef<HTMLDivElement>(null);
@@ -15,11 +18,43 @@ const HeroSection = memo(function HeroSection() {
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
   const y = useTransform(scrollYProgress, [0, 0.5], [0, 100]);
 
+  const [showArrow, setShowArrow] = useState(false);
+  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+
+  const resetIdle = useCallback(() => {
+    setShowArrow(false);
+    clearTimeout(timerRef.current);
+    timerRef.current = setTimeout(() => setShowArrow(true), IDLE_TIMEOUT);
+  }, []);
+
+  useEffect(() => {
+    timerRef.current = setTimeout(() => setShowArrow(true), IDLE_TIMEOUT);
+
+    const events = ["mousemove", "scroll", "keydown", "touchstart", "click"] as const;
+    events.forEach((e) => window.addEventListener(e, resetIdle, { passive: true }));
+
+    return () => {
+      clearTimeout(timerRef.current);
+      events.forEach((e) => window.removeEventListener(e, resetIdle));
+    };
+  }, [resetIdle]);
+
+  useEffect(() => {
+    return scrollYProgress.on("change", (v) => {
+      if (v > 0.15) setShowArrow(false);
+    });
+  }, [scrollYProgress]);
+
+  const scrollToContent = () => {
+    const hero = ref.current;
+    if (hero) {
+      const next = hero.nextElementSibling as HTMLElement | null;
+      next?.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <section
-      ref={ref}
-      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
-    >
+    <section ref={ref} className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
         <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-primary/20 rounded-full blur-[120px] animate-pulse" />
         <div
@@ -37,12 +72,7 @@ const HeroSection = memo(function HeroSection() {
         >
           <div className="absolute inset-0 bg-primary/40 rounded-full blur-2xl scale-110" aria-hidden="true" />
           <div className="relative w-32 h-32 md:w-44 md:h-44 rounded-full overflow-hidden ring-2 ring-primary/50">
-            <img
-              src={avatar}
-              alt="LaymanLouie avatar"
-              className="w-full h-full object-cover"
-              loading="eager"
-            />
+            <img src={avatar} alt="LaymanLouie avatar" className="w-full h-full object-cover" loading="eager" />
           </div>
         </motion.div>
 
@@ -65,6 +95,26 @@ const HeroSection = memo(function HeroSection() {
           Welcome to The Layman's World
         </motion.p>
       </motion.div>
+
+      <AnimatePresence>
+        {showArrow && (
+          <motion.button
+            key="scroll-arrow"
+            onClick={scrollToContent}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 0.7, y: [0, 10, 0] }}
+            exit={{ opacity: 0 }}
+            transition={{
+              opacity: { duration: 1.2, ease: "easeOut" },
+              y: { duration: 2, repeat: Infinity, ease: "easeInOut" },
+            }}
+            className="absolute bottom-10 z-20 p-3 rounded-full text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+            aria-label="Scroll down"
+          >
+            <ChevronDown className="w-8 h-8" />
+          </motion.button>
+        )}
+      </AnimatePresence>
     </section>
   );
 });

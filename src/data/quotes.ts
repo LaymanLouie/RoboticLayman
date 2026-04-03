@@ -223,25 +223,25 @@ export const quotes: Quote[] = [
   {
     number: 37,
     quote: "I like making it long.",
-    game: "Dead By Daylight",
+    game: "Dead by Daylight",
     timestamp: "03/28/26 22:48",
   },
   {
     number: 38,
     quote: "Should I call you my lover?",
-    game: "Dead By Daylight",
+    game: "Dead by Daylight",
     timestamp: "03/28/26 22:52",
   },
   {
     number: 39,
     quote: "Get up, you little cutie.",
-    game: "Dead By Daylight",
+    game: "Dead by Daylight",
     timestamp: "03/28/26 22:55",
   },
   {
     number: 40,
     quote: "Don't settle for 'fine'. You're too amazing to settle.",
-    game: "Dead By Daylight",
+    game: "Dead by Daylight",
     timestamp: "03/28/26 22:59",
   },
 ];

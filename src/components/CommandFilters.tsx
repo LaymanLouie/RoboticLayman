@@ -51,8 +51,8 @@ const CommandFilters = memo(function CommandFilters({
     <div className="mb-12">
       <div className="relative group">
         <div className="absolute inset-0 bg-primary/10 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-500" />
-        
-        <div className="relative bg-card/40 backdrop-blur-xl rounded-2xl border border-border/50 p-6 shadow-2xl shadow-primary/5 space-y-4">
+
+        <div className="relative bg-card/80 rounded-2xl border border-border/50 p-6 shadow-2xl shadow-primary/5 space-y-4">
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
             <Input
@@ -87,12 +87,7 @@ const CommandFilters = memo(function CommandFilters({
                       onToggle: onTagToggle,
                       onClearAll: onClearTags,
                       renderBadge: (tag, isActive, onClick) => (
-                        <TagBadge
-                          tag={tag}
-                          size="md"
-                          isActive={isActive}
-                          onClick={onClick}
-                        />
+                        <TagBadge tag={tag} size="md" isActive={isActive} onClick={onClick} />
                       ),
                       clearThreshold: 3,
                     },
@@ -147,7 +142,7 @@ const CommandFilters = memo(function CommandFilters({
                     "h-10 px-4",
                     APP_BUTTON_BASE,
                     roleSort === "off" ? APP_BUTTON_DEFAULT : APP_BUTTON_ACTIVE,
-                    roleSort === "off" && "text-muted-foreground"
+                    roleSort === "off" && "text-muted-foreground",
                   )}
                 >
                   {roleSort === "off" ? (
@@ -159,9 +154,7 @@ const CommandFilters = memo(function CommandFilters({
                   )}
                   Role
                   {roleSort !== "off" && (
-                    <span className="ml-1 text-xs opacity-60">
-                      {roleSort === "asc" ? "↓" : "↑"}
-                    </span>
+                    <span className="ml-1 text-xs opacity-60">{roleSort === "asc" ? "↓" : "↑"}</span>
                   )}
                 </Button>
               </div>

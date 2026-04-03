@@ -1,5 +1,5 @@
 import { memo } from "react";
-import BaseBadge from "./ui/BaseBadge";
+import BaseBadge from "@/components/ui/BaseBadge";
 import { getTagColor } from "@/lib/tagColors";
 
 interface TagBadgeProps {

@@ -12,7 +12,7 @@ const Navigation = memo(function Navigation() {
   const isHomePage = location.pathname === "/";
   const isScrolled = useIsScrolled();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  
+
   const [showText, setShowText] = useState(!isHomePage);
   const [bgVisible, setBgVisible] = useState(isHomePage);
 
@@ -50,16 +50,12 @@ const Navigation = memo(function Navigation() {
   return (
     <nav
       className={`fixed top-0 left-0 right-0 w-full z-50 transition-all duration-300 ${
-        isScrolled || mobileMenuOpen
-          ? "bg-background/80 backdrop-blur-md border-b border-border/30"
-          : "bg-transparent"
+        isScrolled || mobileMenuOpen ? "bg-background/95 border-b border-border/30" : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
+      <div className="w-full max-w-[95vw] mx-auto px-4">
         <div
-          className={`flex items-center justify-between transition-all duration-300 ${
-            isScrolled ? "h-12" : "h-16"
-          }`}
+          className={`flex items-center justify-between transition-all duration-300 ${isScrolled ? "h-12" : "h-16"}`}
         >
           <Link
             to="/"
@@ -67,13 +63,13 @@ const Navigation = memo(function Navigation() {
               !isHomePage ? "hover:bg-gradient-to-b hover:from-[#8800FF]/50 hover:to-[#220033]/50" : ""
             }`}
           >
-            <div 
+            <div
               className={`absolute inset-0 bg-gradient-to-b from-[#8800FF] to-[#220033] transition-opacity duration-300 ${
                 bgVisible ? "opacity-100" : "opacity-0"
               }`}
               aria-hidden="true"
             />
-            
+
             <div className="relative flex items-center justify-center px-2 py-1.5">
               <img
                 src={avatarClear}
@@ -82,13 +78,17 @@ const Navigation = memo(function Navigation() {
                   isScrolled ? "w-8 h-8" : "w-10 h-10"
                 }`}
               />
-              
-              <div className={`grid transition-all duration-500 ease-out ${
-                showText ? "grid-cols-[1fr]" : "grid-cols-[0fr]"
-              }`}>
-                <div className={`overflow-hidden flex items-center transition-opacity duration-500 ease-out ${
-                  showText ? "opacity-100" : "opacity-0"
-                }`}>
+
+              <div
+                className={`grid transition-all duration-500 ease-out ${
+                  showText ? "grid-cols-[1fr]" : "grid-cols-[0fr]"
+                }`}
+              >
+                <div
+                  className={`overflow-hidden flex items-center transition-opacity duration-500 ease-out ${
+                    showText ? "opacity-100" : "opacity-0"
+                  }`}
+                >
                   <span className="font-semibold text-lg whitespace-nowrap ml-3 mr-1">
                     <BrandName />
                   </span>
@@ -106,21 +106,23 @@ const Navigation = memo(function Navigation() {
                   to={item.path}
                   className="group relative px-4 py-2.5 rounded-lg text-base font-medium transition-colors duration-200 overflow-hidden"
                 >
-                  <span 
+                  <span
                     className={`absolute inset-0 bg-gradient-to-b from-[#8800FF] to-[#220033] rounded-lg transition-opacity duration-300 ${
                       isActive ? "opacity-100" : "opacity-0"
                     }`}
                     aria-hidden="true"
                   />
-                  <span 
+                  <span
                     className={`absolute inset-0 bg-white/10 rounded-lg transition-opacity duration-200 ${
                       isActive ? "opacity-0" : "opacity-0 group-hover:opacity-100"
                     }`}
                     aria-hidden="true"
                   />
-                  <span className={`relative z-10 transition-colors duration-200 ${
-                    isActive ? "text-white" : "text-muted-foreground group-hover:text-white"
-                  }`}>
+                  <span
+                    className={`relative z-10 transition-colors duration-200 ${
+                      isActive ? "text-white" : "text-muted-foreground group-hover:text-white"
+                    }`}
+                  >
                     {item.label}
                   </span>
                 </Link>
@@ -168,9 +170,9 @@ const Navigation = memo(function Navigation() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: DURATION.normal, ease: EASING.snappy }}
-            className="lg:hidden overflow-hidden bg-background/95 backdrop-blur-md border-b border-border/30"
+            className="lg:hidden overflow-hidden bg-background/95 border-b border-border/30"
           >
-            <nav className="container mx-auto px-4 py-4 flex flex-col items-end gap-1">
+            <nav className="w-full max-w-[95vw] mx-auto px-4 py-4 flex flex-col items-end gap-1">
               {NAV_ITEMS.map((item, index) => {
                 const isActive = location.pathname === item.path;
                 return (

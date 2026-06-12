@@ -1,0 +1,383 @@
+import type { Quote } from "@/data/quoteTypes";
+export type { Quote } from "@/data/quoteTypes";
+import { parseProjectDateTime } from "@/lib/dateTime";
+
+export const quotes: Quote[] = [
+  {
+    number: 1,
+    quote: "You like that? You like that, Mommy?",
+    game: "VALORANT",
+    timestamp: "06/20/24 01:46",
+  },
+  {
+    number: 2,
+    quote: "WHOA! You're short.",
+    game: "Overwatch 2",
+    timestamp: "07/29/24 00:17",
+  },
+  {
+    number: 3,
+    quote:
+      "It's for us, Nowat. It's now for what...uh...for...ou...for...I don't know English.",
+    game: "It Takes Two",
+    timestamp: "08/08/24 02:38",
+  },
+  {
+    number: 4,
+    quote: "What quote can I come up with to make ViTaL cry?",
+    game: "Tetris Effect: Connected",
+    timestamp: "01/04/25 20:07",
+  },
+  {
+    number: 5,
+    quote: "Nowat is so attractive. I think about him when I go to sleep.",
+    game: "Tetris Effect: Connected",
+    timestamp: "01/04/25 23:02",
+  },
+  {
+    number: 6,
+    quote: "There's no way that thing can squeeze through here right?",
+    game: "Poppy Playtime",
+    timestamp: "02/04/25 20:37",
+  },
+  {
+    number: 7,
+    quote: "KILLERS JUST WANT TO KILL YOU!",
+    game: "Dead by Daylight",
+    timestamp: "07/19/25 23:29",
+  },
+  {
+    number: 8,
+    quote: "I am your father but in another term...",
+    game: "Dead by Daylight",
+    timestamp: "10/15/25 00:54",
+  },
+  {
+    number: 9,
+    quote: "How do I burn a body?",
+    game: "The Mortuary Assistant",
+    timestamp: "10/16/25 00:46",
+  },
+  {
+    number: 10,
+    quote: "If you guys don't pay attention to a problem, it goes away.",
+    game: "The Mortuary Assistant",
+    timestamp: "10/17/25 23:30",
+  },
+  {
+    number: 11,
+    quote: "WHAT THE KIND OF WEIRDO ARE YOU?",
+    game: "Dead by Daylight",
+    timestamp: "10/18/25 00:53",
+  },
+  {
+    number: 12,
+    quote:
+      "500 followers. Layman's gonna wear a maid outfit, face reveal, and everything? Right?",
+    game: "Poppy Playtime",
+    timestamp: "10/25/25 01:18",
+  },
+  {
+    number: 13,
+    quote: "KILL THE CHILD!!",
+    game: "R.E.P.O.",
+    timestamp: "10/30/25 23:55",
+  },
+  {
+    number: 14,
+    quote: "I would eat that up real quick.",
+    game: "Dead by Daylight",
+    timestamp: "10/31/25 02:15",
+  },
+  {
+    number: 15,
+    quote: "Oh. I'll make my territory with him.",
+    game: "VALORANT",
+    timestamp: "11/04/25 23:29",
+  },
+  {
+    number: 16,
+    quote: "I love the big white guy.",
+    game: "Hollow Knight: Silksong",
+    timestamp: "11/07/25 21:59",
+  },
+  {
+    number: 17,
+    quote: "I would be in a locker with Oracle all night.",
+    game: "Dead by Daylight",
+    timestamp: "11/07/25 03:30",
+  },
+  {
+    number: 18,
+    quote: "Oh. Ho. I can grow for sure.",
+    game: "VALORANT",
+    timestamp: "11/08/25 04:55",
+  },
+  {
+    number: 19,
+    quote: "Good girl.",
+    game: "VALORANT",
+    timestamp: "11/14/25 23:23",
+  },
+  {
+    number: 20,
+    quote:
+      "You're just so cute, and I want to pinch your cheeks. Both of them.",
+    game: "Dead by Daylight",
+    timestamp: "11/14/25 02:27",
+  },
+  {
+    number: 21,
+    quote: "Seven seconds is all I need.",
+    game: "Dead by Daylight",
+    timestamp: "11/14/25 02:36",
+  },
+  {
+    number: 22,
+    quote: "I can't go more than 4 seconds...especially with Oracle.",
+    game: "Dead by Daylight",
+    timestamp: "11/19/25 00:57",
+  },
+  {
+    number: 23,
+    quote: "You'd love to feel me...",
+    game: "Fever Meme",
+    timestamp: "11/20/25 02:01",
+  },
+  {
+    number: 24,
+    quote: "I didn't plan to do a wall anyways.",
+    game: "Dead by Daylight",
+    timestamp: "12/10/25 01:19",
+  },
+  {
+    number: 25,
+    quote: "I am gonna hurt you so badly.",
+    game: "Just Chatting",
+    timestamp: "12/20/25 03:03",
+  },
+  {
+    number: 26,
+    quote: "Do me again.",
+    game: "Just Chatting",
+    timestamp: "02/07/26 12:53",
+  },
+  {
+    number: 27,
+    quote: "Good girl.",
+    game: "Just Chatting",
+    timestamp: "02/28/26 12:53",
+  },
+  {
+    number: 28,
+    quote: "He's so hot...",
+    game: "Just Chatting",
+    timestamp: "02/28/26 21:54",
+  },
+  {
+    number: 29,
+    quote:
+      "Sometimes, I just want to ban people left and right. Just to make my life easier.",
+    game: "Rocket League",
+    timestamp: "03/28/26 19:29",
+  },
+  {
+    number: 30,
+    quote: 'Dirt: "Wait! I\'m getting rammed!" Layman: "Yo! Me too."',
+    game: "Rocket League",
+    timestamp: "03/28/26 19:51",
+  },
+  {
+    number: 31,
+    quote:
+      "I'm talking about in the game. Position-wise: I got plenty in the book.",
+    game: "Rocket League",
+    timestamp: "03/28/26 20:01",
+  },
+  {
+    number: 32,
+    quote: "I am nothing, but a pawn to you.",
+    game: "Rocket League",
+    timestamp: "03/28/26 20:10",
+  },
+  {
+    number: 33,
+    quote: "Anything for you.",
+    game: "Rocket League",
+    timestamp: "03/28/26 20:11",
+  },
+  {
+    number: 34,
+    quote: "Look how tight it was.",
+    game: "Rocket League",
+    timestamp: "03/28/26 20:11",
+  },
+  {
+    number: 35,
+    quote: "I got too excited, but it went in anyways.",
+    game: "Rocket League",
+    timestamp: "03/28/26 20:14",
+  },
+  {
+    number: 36,
+    quote:
+      "I'll see you back here, and if I don't, I'll do something about it and make sure you suffer.",
+    game: "Rocket League",
+    timestamp: "03/28/26 20:36",
+  },
+  {
+    number: 37,
+    quote: "I like making it long.",
+    game: "Dead by Daylight",
+    timestamp: "03/28/26 23:48",
+  },
+  {
+    number: 38,
+    quote: "Should I call you my lover?",
+    game: "Dead by Daylight",
+    timestamp: "03/28/26 23:52",
+  },
+  {
+    number: 39,
+    quote: "Get up, you little cutie.",
+    game: "Dead by Daylight",
+    timestamp: "03/28/26 23:55",
+  },
+  {
+    number: 40,
+    quote: "Don't settle for 'fine'. You're too amazing to settle.",
+    game: "Dead by Daylight",
+    timestamp: "03/28/26 23:59",
+  },
+  {
+    number: 41,
+    quote: "It's just hard I guess...",
+    game: "Just Chatting",
+    timestamp: "03/29/26 22:38",
+  },
+  {
+    number: 42,
+    quote: "Water. Fridge. Microsoft.",
+    game: "Rocket League",
+    timestamp: "03/31/26 00:10",
+  },
+  {
+    number: 43,
+    quote: "Guys. You guys can literally quote literally anything.",
+    game: "Rocket League",
+    timestamp: "03/31/26 00:10",
+  },
+  {
+    number: 44,
+    quote: "I barely last 3 minutes.",
+    game: "Just Chatting",
+    timestamp: "04/04/26 21:13",
+  },
+  {
+    number: 45,
+    quote: "No love? This is good.",
+    game: "is this seat taken?",
+    timestamp: "04/13/26 01:26",
+  },
+  {
+    number: 46,
+    quote: "I'm so good with meat.",
+    game: "is this seat taken?",
+    timestamp: "04/13/26 02:26",
+  },
+  {
+    number: 47,
+    quote: "Guys. It being small isn't a bad thing. Alright?",
+    game: "is this seat taken?",
+    timestamp: "04/20/26 00:14",
+  },
+  {
+    number: 48,
+    quote: "I can step on her.",
+    game: "VALORANT",
+    timestamp: "05/02/26 20:27",
+  },
+  {
+    number: 49,
+    quote: "I jumped on that quite a bit.",
+    game: "Chess",
+    timestamp: "05/02/26 23:58",
+  },
+  {
+    number: 50,
+    quote: "We could just kiss.",
+    game: "VALORANT",
+    timestamp: "05/03/26 23:08",
+  },
+  {
+    number: 51,
+    quote: "I like teasing very much.",
+    game: "VALORANT",
+    timestamp: "05/03/26 23:26",
+  },
+  {
+    number: 52,
+    quote: "If you want to be on top of me, that's fine.",
+    game: "VALORANT",
+    timestamp: "05/03/26 23:33",
+  },
+  {
+    number: 53,
+    quote: "Come back when it's not little.",
+    game: "ROBLOX",
+    timestamp: "05/10/26 00:59",
+  },
+  {
+    number: 54,
+    quote: "I like holes.",
+    game: "VALORANT",
+    timestamp: "05/11/26 01:04",
+  },
+  {
+    number: 55,
+    quote: "I grab them firmly.",
+    game: "Rocket League",
+    timestamp: "05/22/26 00:15",
+  },
+  {
+    number: 56,
+    quote: "I disabled it. It was too big.",
+    game: "VALORANT",
+    timestamp: "05/23/26 00:15",
+  },
+  {
+    number: 57,
+    quote: "The history I have with belts...",
+    game: "VALORANT",
+    timestamp: "05/25/26 23:40",
+  },
+  {
+    number: 58,
+    quote: "I've never hit anyone without their consent.",
+    game: "Chess",
+    timestamp: "05/29/26 23:31",
+  },
+  {
+    number: 59,
+    quote: "You don't know what you're putting in your mouth?",
+    game: "VALORANT",
+    timestamp: "05/29/26 00:23",
+  },
+  {
+    number: 60,
+    quote: "I like giving it.",
+    game: "Chess",
+    timestamp: "05/30/26 18:36",
+  },
+];
+
+if (import.meta.env.DEV) {
+  for (const q of quotes) {
+    const parsed = parseProjectDateTime(q.timestamp);
+    if (isNaN(parsed.getTime())) {
+      console.error(
+        `[quotes] Quote #${q.number} has an unparseable timestamp: "${q.timestamp}"`,
+      );
+    }
+  }
+}
